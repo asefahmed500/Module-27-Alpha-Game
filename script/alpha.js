@@ -26,7 +26,23 @@ function handKeyboardButtonPress(event){
 
     if(playerPressed === expextedAlphabet){
         console.log('you get a point ');
-        console.log('you have correctly pressed ', expextedAlphabet) 
+        // console.log('you have correctly pressed ', expextedAlphabet) 
+
+        // update the score 
+        const currentScoreElement = document.getElementById('current-score');
+        const currentScoretext = currentScoreElement.innerText;
+        const currentScore = parseInt(currentScoretext)
+        console.log(currentScore);
+
+        // new score 
+
+        const newScore = currentScore + 1 ;
+
+        // show the updated score 
+
+        currentScoreElement.innerText = newScore;
+
+        // start a new game 
         removeBackroundColorByID(expextedAlphabet);
         continuegame();
 
@@ -34,6 +50,18 @@ function handKeyboardButtonPress(event){
 
     else {
         console.log('ypu missed . you lost a life')
+
+        // step  1 : get the current life number 
+        const CurrentLifeElement = document.getElementById('current-life');
+        const CurrentLifeText = CurrentLifeElement.innerText;
+        const currentLife = parseInt(CurrentLifeText);
+        // step 2 : Reduce the life event 
+
+        const newLife = currentLife - 1;
+
+
+        // step 3 : display the updated life event 
+        CurrentLifeElement.innerText = newLife;
     }
 }
 
